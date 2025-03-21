@@ -1,9 +1,60 @@
 # -------------------------
-# Compilador y flags
+# Lista de compiladores permitidos y objetivos dummy
 # -------------------------
-CC = gcc
-COMMON_FLAGS = -std=c11 -Wall -Wextra
-OPT_FLAGS = -O3 -march=native -funroll-loops -ffast-math -flto
+COMPILERS := gcc clang nvcc icx 
+
+# Definición de objetivos phony para los compiladores permitidos
+.PHONY: gcc clang nvcc icx
+gcc:
+clang:
+nvcc:
+icx:
+
+# -------------------------
+# Selección del compilador
+# -------------------------
+# Si se pasa alguno de los nombres de compilador, se selecciona el primero
+COMPILER := $(firstword $(filter gcc clang nvcc icx, $(MAKECMDGOALS)))
+# -------------------------
+# Selección del ejecutable del compilador
+# -------------------------
+ifeq ($(COMPILER),gcc)
+   CC_EXEC = gcc
+endif
+ifeq ($(COMPILER),clang)
+   CC_EXEC = clang
+endif
+ifeq ($(COMPILER),nvcc)
+   CC_EXEC = nvcc
+endif
+ifeq ($(COMPILER),icx)
+   CC_EXEC = icx
+endif
+
+# -------------------------
+# Flags de compilación según el compilador
+# -------------------------
+# Flags por defecto para gcc y clang
+COMMON_FLAGS_default = -std=c11 -Wall -Wextra
+OPT_FLAGS_default = -O3 -march=native -funroll-loops -ffast-math -flto
+
+ifeq ($(COMPILER),gcc)
+   COMMON_FLAGS = $(COMMON_FLAGS_default)
+   OPT_FLAGS = $(OPT_FLAGS_default)
+endif
+ifeq ($(COMPILER),clang)
+   COMMON_FLAGS = $(COMMON_FLAGS_default)
+   OPT_FLAGS = $(OPT_FLAGS_default)
+endif
+ifeq ($(COMPILER),nvcc)
+   # Suponemos que se compila en modo C++ para nvcc (ajusta según corresponda)
+   COMMON_FLAGS =
+   OPT_FLAGS = -O3 --use_fast_math --extra-device-vectorization
+endif
+ifeq ($(COMPILER),icx)
+   COMMON_FLAGS =
+   OPT_FLAGS = -O3 -xHost -qopt-zmm-usage=high -funroll-loops -fp-model fast=2
+endif
 
 # -------------------------
 # Flags de enlazado
@@ -39,32 +90,29 @@ all: headless head headlessOpt
 # Reglas para compilar objetos sin optimización
 # -------------------------
 %.o: %.c
-	$(CC) $(COMMON_FLAGS) -c $< -o $@
+	$(CC_EXEC) $(COMMON_FLAGS) -c $< -o $@
 
 # -------------------------
 # Reglas para compilar objetos optimizados (en $(OPT_DIR))
 # -------------------------
 $(OPT_DIR)/%.o: %.c | $(OPT_DIR)
-	$(CC) $(COMMON_FLAGS) $(OPT_FLAGS) -c $< -o $@
+	$(CC_EXEC) $(COMMON_FLAGS) $(OPT_FLAGS) -c $< -o $@
 
-# Crea el directorio para objetos optimizados si no existe
 $(OPT_DIR):
 	mkdir -p $(OPT_DIR)
 
-# -------------------------
-# Objetivos finales
-# -------------------------
-# Versión sin optimización para headless
 headless: $(TINY_OBJ) $(OBJS)
-	$(CC) $(COMMON_FLAGS) -o $@ $^ $(TINY_LDFLAGS)
+	$(CC_EXEC) $(COMMON_FLAGS) -o $@ $^ $(TINY_LDFLAGS)
+	@echo "Ejecutando perf stat para headless con $(COMPILER)..."
+	sudo perf stat -r 10 ./headless > stats$(STATS_SUFFIX).txt
 
-# Versión sin optimización para head
 head: $(CG_OBJ) $(OBJS)
-	$(CC) $(COMMON_FLAGS) -o $@ $^ $(CG_LDFLAGS)
+	$(CC_EXEC) $(COMMON_FLAGS) -o $@ $^ $(CG_LDFLAGS)
 
-# Versión optimizada para headless
 headlessOpt: $(TINY_OPT_OBJ) $(OPT_OBJS)
-	$(CC) $(COMMON_FLAGS) $(OPT_FLAGS) -o $@ $^ $(TINY_LDFLAGS)
+	$(CC_EXEC) $(COMMON_FLAGS) $(OPT_FLAGS) -o $@ $^ $(TINY_LDFLAGS)
+	@echo "Ejecutando perf stat para headlessOpt con $(COMPILER)..."
+	sudo perf stat -r 10 ./headlessOpt > statsOpt$(STATS_SUFFIX).txt
 
 # -------------------------
 # Limpieza
