@@ -15,6 +15,7 @@ icx:
 # -------------------------
 # Si se pasa alguno de los nombres de compilador, se selecciona el primero
 COMPILER := $(firstword $(filter gcc clang nvcc icx, $(MAKECMDGOALS)))
+STATS_SUFFIX := $(COMPILER)
 # -------------------------
 # Selección del ejecutable del compilador
 # -------------------------
@@ -53,7 +54,7 @@ ifeq ($(COMPILER),nvcc)
 endif
 ifeq ($(COMPILER),icx)
    COMMON_FLAGS =
-   OPT_FLAGS = -O3 -xHost -qopt-zmm-usage=high -funroll-loops -fp-model fast=2
+   OPT_FLAGS = -O3 -xHost -funroll-loops -fp-model fast=2
 endif
 
 # -------------------------
@@ -105,6 +106,8 @@ headless: $(TINY_OBJ) $(OBJS)
 	$(CC_EXEC) $(COMMON_FLAGS) -o $@ $^ $(TINY_LDFLAGS)
 	@echo "Ejecutando perf stat para headless con $(COMPILER)..."
 	sudo perf stat -r 10 ./headless > stats$(STATS_SUFFIX).txt
+	objdump -d ./headless > headless$(STATS_SUFFIX).asm
+
 
 head: $(CG_OBJ) $(OBJS)
 	$(CC_EXEC) $(COMMON_FLAGS) -o $@ $^ $(CG_LDFLAGS)
@@ -113,6 +116,7 @@ headlessOpt: $(TINY_OPT_OBJ) $(OPT_OBJS)
 	$(CC_EXEC) $(COMMON_FLAGS) $(OPT_FLAGS) -o $@ $^ $(TINY_LDFLAGS)
 	@echo "Ejecutando perf stat para headlessOpt con $(COMPILER)..."
 	sudo perf stat -r 10 ./headlessOpt > statsOpt$(STATS_SUFFIX).txt
+	objdump -d ./headlessOpt > headlessOpt$(STATS_SUFFIX).asm
 
 # -------------------------
 # Limpieza
