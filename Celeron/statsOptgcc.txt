@@ -5,8 +5,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.121249 seconds
-# 270.254613 K photons per second
+# 0.123506 seconds
+# 265.314201 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	 20480.86230	   306.91858
@@ -117,8 +117,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.119741 seconds
-# 273.656191 K photons per second
+# 0.120407 seconds
+# 272.144143 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	 20480.86230	   306.91858
@@ -229,8 +229,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.120120 seconds
-# 272.793857 K photons per second
+# 0.119970 seconds
+# 273.134739 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	 20480.86230	   306.91858
@@ -341,8 +341,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.120516 seconds
-# 271.896549 K photons per second
+# 0.119946 seconds
+# 273.190490 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	 20480.86230	   306.91858
@@ -453,8 +453,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.119811 seconds
-# 273.496994 K photons per second
+# 0.119733 seconds
+# 273.675099 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	 20480.86230	   306.91858
@@ -565,8 +565,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.119750 seconds
-# 273.637271 K photons per second
+# 0.120207 seconds
+# 272.596517 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	 20480.86230	   306.91858
@@ -677,8 +677,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.121266 seconds
-# 270.215036 K photons per second
+# 0.120202 seconds
+# 272.607428 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	 20480.86230	   306.91858
@@ -789,8 +789,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.121157 seconds
-# 270.458132 K photons per second
+# 0.120166 seconds
+# 272.690431 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	 20480.86230	   306.91858
@@ -901,8 +901,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.119677 seconds
-# 273.803847 K photons per second
+# 0.129411 seconds
+# 253.209137 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	 20480.86230	   306.91858
@@ -1013,8 +1013,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.119862 seconds
-# 273.381069 K photons per second
+# 0.119972 seconds
+# 273.130887 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	 20480.86230	   306.91858
@@ -1118,3 +1118,16 @@
   4900	     0.07571	     0.00130
   4950	     0.07280	     0.00127
 # extra	     0.02389
+
+ Performance counter stats for './headlessOpt' (10 runs):
+
+            120,81 msec task-clock                #    0,985 CPUs utilized            ( +-  0,16% )
+                 1      context-switches          #    8,268 /sec                     ( +-451,53% )
+                 0      cpu-migrations            #    0,000 /sec                   
+                76      page-faults               #  628,331 /sec                     ( +-  0,48% )
+       333.553.472      cycles                    #    2,758 GHz                      ( +-  0,06% )
+       421.453.977      instructions              #    1,26  insn per cycle           ( +-  0,01% )
+        20.898.201      branches                  #  172,776 M/sec                    ( +-  0,04% )
+           785.131      branch-misses             #    3,75% of all branches          ( +-  0,15% )
+
+          0,122601 +- 0,000992 seconds time elapsed  ( +-  0,81% )
