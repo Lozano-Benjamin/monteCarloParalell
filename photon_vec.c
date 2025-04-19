@@ -45,16 +45,15 @@ void photon(float* heats, float* heats_squared)
         y = _mm_add_ps(y, _mm_mul_ps(_mm_set1_ps(t), v));
         z = _mm_add_ps(z, _mm_mul_ps(_mm_set1_ps(t), w));
    
-        x = _mm_mul_ps(x,x);
-        y = _mm_mul_ps(y,y);
-        z = _mm_mul_ps(z,z);
-
-        //sqrtf(x * x + y * y + z * z)
-        aux = _mm_add_ps(x, y);
-        aux = _mm_add_ps(aux, z);
+        __m128 x2 = _mm_mul_ps(x,x);
+        __m128 y2 = _mm_mul_ps(y,y);
+        __m128 z2 = _mm_mul_ps(z,z);
+        aux = _mm_add_ps(x2, y2);
+        aux = _mm_add_ps(aux, z2);
         aux = _mm_sqrt_ps(aux);
 
-        unsigned int shell = _mm_cvtss_f32(_mm_mul_ps(aux, shells_per_mfp)); /* absorb */
+        float shell_f = _mm_cvtss_f32(_mm_mul_ps(aux, shells_per_mfp));
+        unsigned int shell = (unsigned int)shell_f;
         if (shell > SHELLS - 1) {
             shell = SHELLS - 1;
         }
@@ -69,12 +68,13 @@ void photon(float* heats, float* heats_squared)
             xi2 = 2.0f * rand_float() - 1.0f; 
             t = xi1 * xi1 + xi2 * xi2;
         } while (1.0f < t);
-        u = _mm_set_ps1(2.0f * t - 1.0f);
-        v = _mm_set_ps1(xi1 * sqrtf((1.0f - _mm_cvtss_f32(_mm_mul_ps(u, u))) / t));
-        w = _mm_set_ps1(xi2 * sqrtf((1.0f - _mm_cvtss_f32(_mm_mul_ps(u, u))) / t));
-
+        u = _mm_set1_ps(2.0f * t - 1.0f);
+        v = _mm_set1_ps(xi1 * sqrtf((1.0f - _mm_cvtss_f32(_mm_mul_ps(u, u))) / t));
+        w = _mm_set1_ps(xi2 * sqrtf((1.0f - _mm_cvtss_f32(_mm_mul_ps(u, u))) / t));
+        
         if (weight < 0.001f) { /* roulette */
-            if (rand_float() > 0.1f) 
+            float roulette = rand_float();
+            if (roulette > 0.1f) 
                 break;
             weight /= 0.1f;
         }
