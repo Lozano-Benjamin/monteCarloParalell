@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include "params.h"
 
+
 static uint32_t xorshift_state = 12345; //Estado inicial del generador
 
 

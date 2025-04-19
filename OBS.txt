@@ -1,0 +1,23 @@
+tiny_mc.c:48:9: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+   48 |         photon(heat, heat2);
+      |         ^
+tiny_mc.c:47:5: remark: loop not vectorized: instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+   47 |     for (unsigned int i = 0; i < PHOTONS; ++i) {
+      |     ^
+tiny_mc.c:47:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+tiny_mc.c:62:9: remark: loop not vectorized: call instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+   62 |         printf("%6.0f\t%12.5f\t%12.5f\n", i * (float)MICRONS_PER_SHELL,
+      |         ^
+tiny_mc.c:61:5: remark: loop not vectorized: instruction cannot be vectorized [-Rpass-analysis=loop-vectorize]
+   61 |     for (unsigned int i = 0; i < SHELLS - 1; ++i) {
+      |     ^
+tiny_mc.c:61:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+clang -std=c11 -Wall -Wextra -O3 -fvectorize -Rpass-analysis -Rpass-missed=loop-vectorize -march=native -funroll-loops -ffast-math -flto -c wtime.c -o opt/wtime.o
+clang -std=c11 -Wall -Wextra -O3 -fvectorize -Rpass-analysis -Rpass-missed=loop-vectorize -march=native -funroll-loops -ffast-math -flto -c photon.c -o opt/photon.o
+photon.c:11:18: remark: loop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]
+   11 |     uint32_t x = xorshift_state;
+      |                  ^
+photon.c:54:9: remark: loop not vectorized: could not determine number of loop iterations [-Rpass-analysis=loop-vectorize]
+   54 |         do {
+      |         ^
+photon.c:54:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
