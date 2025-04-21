@@ -37,8 +37,7 @@ endif
 # -------------------------
 # Flags por defecto para gcc y clang
 COMMON_FLAGS_default = -std=c11 -Wall -Wextra
-OPT_FLAGS_default = -O3 -march=native -funroll-loops -ffast-math -flto
-
+OPT_FLAGS_default = -O3 -march=native -funroll-loops -ffast-math -flto -fvectorize -msse4.1
 ifeq ($(COMPILER),gcc)
    COMMON_FLAGS = $(COMMON_FLAGS_default)
    OPT_FLAGS = $(OPT_FLAGS_default)
@@ -50,11 +49,11 @@ endif
 ifeq ($(COMPILER),nvcc)
    # Suponemos que se compila en modo C++ para nvcc (ajusta según corresponda)
    COMMON_FLAGS =
-   OPT_FLAGS = -O3 --use_fast_math --extra-device-vectorization
+   OPT_FLAGS = -O3 --use_fast_math --extra-device-vectorization 
 endif
 ifeq ($(COMPILER),icx)
    COMMON_FLAGS =
-   OPT_FLAGS = -O3 -xHost -funroll-loops -fp-model fast=2
+   OPT_FLAGS = -O3 -funroll-loops -fp-model fast=2 -qopt-zmm-usage=high  -qopt-report=max
 endif
 
 # -------------------------
