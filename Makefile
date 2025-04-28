@@ -37,7 +37,7 @@ endif
 # -------------------------
 # Flags por defecto para gcc y clang
 COMMON_FLAGS_default = -std=c11 -Wall -Wextra
-OPT_FLAGS_default = -O3 -march=native -funroll-loops -ffast-math -flto -fvectorize -msse4.1
+OPT_FLAGS_default = -O3 -funroll-loops -march=native -falign-functions=32 -falign-loops=32 -ffast-math -flto -ftree-vectorize -msse4.1
 ifeq ($(COMPILER),gcc)
    COMMON_FLAGS = $(COMMON_FLAGS_default)
    OPT_FLAGS = $(OPT_FLAGS_default)
@@ -49,11 +49,11 @@ endif
 ifeq ($(COMPILER),nvcc)
    # Suponemos que se compila en modo C++ para nvcc (ajusta según corresponda)
    COMMON_FLAGS =
-   OPT_FLAGS = -O3 --use_fast_math --extra-device-vectorization 
+   OPT_FLAGS = -Xcompiler="-O3 -march=native -ftree-vectorize -funroll-loops -falign-functions=32 -falign-loops=32 -flto"
 endif
 ifeq ($(COMPILER),icx)
    COMMON_FLAGS =
-   OPT_FLAGS = -O3 -funroll-loops -fp-model fast=2 -qopt-zmm-usage=high  -qopt-report=max
+   OPT_FLAGS = -O3 -funroll-loops -march=native -falign-functions=32 -falign-loops=32 -ffast-math  -msse4.1 -fp-model fast=2 -qopt-zmm-usage=high  -qopt-report=max
 endif
 
 # -------------------------
@@ -68,7 +68,7 @@ CG_LDFLAGS   = -lm -lglfw -lGL -lGLEW
 TARGETS = headless head headlessOpt
 OPT_DIR = opt
 
-C_SOURCES = wtime.c photon.c
+C_SOURCES = wtime.c photon_vec.c
 
 # Objetos sin optimización (en el directorio actual)
 OBJS      = $(C_SOURCES:.c=.o)

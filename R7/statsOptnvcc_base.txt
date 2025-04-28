@@ -6,7 +6,7 @@
 # Photons    =    32768
 #
 # 0.042760 seconds
-# 766.331839 K photons per second
+# 766,331839 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	 20480.86230	   306.91858
@@ -118,7 +118,7 @@
 # Photons    =    32768
 #
 # 0.043808 seconds
-# 747.983210 K photons per second
+# 747,983210 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	 20480.86230	   306.91858

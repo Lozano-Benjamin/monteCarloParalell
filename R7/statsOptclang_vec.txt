@@ -5,8 +5,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.036104 seconds
-# 907.592523 K photons per second
+# 0.035311 seconds
+# 927.987854 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	874324.68750	        -nan
@@ -117,8 +117,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.034377 seconds
-# 953.207374 K photons per second
+# 0.036291 seconds
+# 902.934711 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	874324.68750	        -nan
@@ -229,8 +229,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.036257 seconds
-# 903.779156 K photons per second
+# 0.036699 seconds
+# 892.893564 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	874324.68750	        -nan
@@ -341,8 +341,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.036184 seconds
-# 905.581144 K photons per second
+# 0.035122 seconds
+# 932.964449 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	874324.68750	        -nan
@@ -453,8 +453,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.036768 seconds
-# 891.219807 K photons per second
+# 0.035030 seconds
+# 935.431904 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	874324.68750	        -nan
@@ -565,8 +565,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.035303 seconds
-# 928.199618 K photons per second
+# 0.036697 seconds
+# 892.922323 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	874324.68750	        -nan
@@ -677,8 +677,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.035247 seconds
-# 929.678165 K photons per second
+# 0.037453 seconds
+# 874.900216 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	874324.68750	        -nan
@@ -789,8 +789,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.035186 seconds
-# 931.279963 K photons per second
+# 0.035833 seconds
+# 914.465546 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	874324.68750	        -nan
@@ -901,8 +901,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.036371 seconds
-# 900.947493 K photons per second
+# 0.038781 seconds
+# 844.952984 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	874324.68750	        -nan
@@ -1013,8 +1013,8 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.036208 seconds
-# 904.995296 K photons per second
+# 0.044533 seconds
+# 735.806191 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
      0	874324.68750	        -nan

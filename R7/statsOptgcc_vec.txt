@@ -5,11 +5,11 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.042910 seconds
-# 763.644464 K photons per second
+# 0.035961 seconds
+# 911.213876 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
-     0	874314.93750	        -nan
+     0	874270.59375	        -nan
     50	  4711.90555	    50.21709
    100	  1784.15008	    18.47702
    150	   883.82029	     9.31789
@@ -109,7 +109,7 @@
   4850	     0.02599	     0.00186
   4900	     0.02691	     0.00186
   4950	     0.02508	     0.00179
-# extra	     0.20071
+# extra	     0.20073
 # Tiny Monte Carlo by Scott Prahl (http://omlc.ogi.edu)
 # 1 W Point Source Heating in Infinite Isotropic Scattering Medium
 # CPU version, adapted for PEAGPGPU by Gustavo Castellano and Nicolas Wolovick
@@ -117,11 +117,11 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.044139 seconds
-# 742.378808 K photons per second
+# 0.035448 seconds
+# 924.396925 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
-     0	874314.93750	        -nan
+     0	874270.59375	        -nan
     50	  4711.90555	    50.21709
    100	  1784.15008	    18.47702
    150	   883.82029	     9.31789
@@ -221,7 +221,7 @@
   4850	     0.02599	     0.00186
   4900	     0.02691	     0.00186
   4950	     0.02508	     0.00179
-# extra	     0.20071
+# extra	     0.20073
 # Tiny Monte Carlo by Scott Prahl (http://omlc.ogi.edu)
 # 1 W Point Source Heating in Infinite Isotropic Scattering Medium
 # CPU version, adapted for PEAGPGPU by Gustavo Castellano and Nicolas Wolovick
@@ -229,11 +229,11 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.043480 seconds
-# 753.632069 K photons per second
+# 0.035329 seconds
+# 927.513627 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
-     0	874314.93750	        -nan
+     0	874270.59375	        -nan
     50	  4711.90555	    50.21709
    100	  1784.15008	    18.47702
    150	   883.82029	     9.31789
@@ -333,7 +333,7 @@
   4850	     0.02599	     0.00186
   4900	     0.02691	     0.00186
   4950	     0.02508	     0.00179
-# extra	     0.20071
+# extra	     0.20073
 # Tiny Monte Carlo by Scott Prahl (http://omlc.ogi.edu)
 # 1 W Point Source Heating in Infinite Isotropic Scattering Medium
 # CPU version, adapted for PEAGPGPU by Gustavo Castellano and Nicolas Wolovick
@@ -341,11 +341,11 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.043191 seconds
-# 758.684516 K photons per second
+# 0.035454 seconds
+# 924.244891 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
-     0	874314.93750	        -nan
+     0	874270.59375	        -nan
     50	  4711.90555	    50.21709
    100	  1784.15008	    18.47702
    150	   883.82029	     9.31789
@@ -445,7 +445,7 @@
   4850	     0.02599	     0.00186
   4900	     0.02691	     0.00186
   4950	     0.02508	     0.00179
-# extra	     0.20071
+# extra	     0.20073
 # Tiny Monte Carlo by Scott Prahl (http://omlc.ogi.edu)
 # 1 W Point Source Heating in Infinite Isotropic Scattering Medium
 # CPU version, adapted for PEAGPGPU by Gustavo Castellano and Nicolas Wolovick
@@ -453,11 +453,11 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.043253 seconds
-# 757.597214 K photons per second
+# 0.035958 seconds
+# 911.295627 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
-     0	874314.93750	        -nan
+     0	874270.59375	        -nan
     50	  4711.90555	    50.21709
    100	  1784.15008	    18.47702
    150	   883.82029	     9.31789
@@ -557,7 +557,7 @@
   4850	     0.02599	     0.00186
   4900	     0.02691	     0.00186
   4950	     0.02508	     0.00179
-# extra	     0.20071
+# extra	     0.20073
 # Tiny Monte Carlo by Scott Prahl (http://omlc.ogi.edu)
 # 1 W Point Source Heating in Infinite Isotropic Scattering Medium
 # CPU version, adapted for PEAGPGPU by Gustavo Castellano and Nicolas Wolovick
@@ -565,11 +565,11 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.042360 seconds
-# 773.551416 K photons per second
+# 0.036229 seconds
+# 904.472366 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
-     0	874314.93750	        -nan
+     0	874270.59375	        -nan
     50	  4711.90555	    50.21709
    100	  1784.15008	    18.47702
    150	   883.82029	     9.31789
@@ -669,7 +669,7 @@
   4850	     0.02599	     0.00186
   4900	     0.02691	     0.00186
   4950	     0.02508	     0.00179
-# extra	     0.20071
+# extra	     0.20073
 # Tiny Monte Carlo by Scott Prahl (http://omlc.ogi.edu)
 # 1 W Point Source Heating in Infinite Isotropic Scattering Medium
 # CPU version, adapted for PEAGPGPU by Gustavo Castellano and Nicolas Wolovick
@@ -677,11 +677,11 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.042867 seconds
-# 764.403523 K photons per second
+# 0.035787 seconds
+# 915.634512 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
-     0	874314.93750	        -nan
+     0	874270.59375	        -nan
     50	  4711.90555	    50.21709
    100	  1784.15008	    18.47702
    150	   883.82029	     9.31789
@@ -781,7 +781,7 @@
   4850	     0.02599	     0.00186
   4900	     0.02691	     0.00186
   4950	     0.02508	     0.00179
-# extra	     0.20071
+# extra	     0.20073
 # Tiny Monte Carlo by Scott Prahl (http://omlc.ogi.edu)
 # 1 W Point Source Heating in Infinite Isotropic Scattering Medium
 # CPU version, adapted for PEAGPGPU by Gustavo Castellano and Nicolas Wolovick
@@ -789,11 +789,11 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.043233 seconds
-# 757.942903 K photons per second
+# 0.036268 seconds
+# 903.507405 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
-     0	874314.93750	        -nan
+     0	874270.59375	        -nan
     50	  4711.90555	    50.21709
    100	  1784.15008	    18.47702
    150	   883.82029	     9.31789
@@ -893,7 +893,7 @@
   4850	     0.02599	     0.00186
   4900	     0.02691	     0.00186
   4950	     0.02508	     0.00179
-# extra	     0.20071
+# extra	     0.20073
 # Tiny Monte Carlo by Scott Prahl (http://omlc.ogi.edu)
 # 1 W Point Source Heating in Infinite Isotropic Scattering Medium
 # CPU version, adapted for PEAGPGPU by Gustavo Castellano and Nicolas Wolovick
@@ -901,11 +901,11 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.042393 seconds
-# 772.953424 K photons per second
+# 0.036003 seconds
+# 910.150877 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
-     0	874314.93750	        -nan
+     0	874270.59375	        -nan
     50	  4711.90555	    50.21709
    100	  1784.15008	    18.47702
    150	   883.82029	     9.31789
@@ -1005,7 +1005,7 @@
   4850	     0.02599	     0.00186
   4900	     0.02691	     0.00186
   4950	     0.02508	     0.00179
-# extra	     0.20071
+# extra	     0.20073
 # Tiny Monte Carlo by Scott Prahl (http://omlc.ogi.edu)
 # 1 W Point Source Heating in Infinite Isotropic Scattering Medium
 # CPU version, adapted for PEAGPGPU by Gustavo Castellano and Nicolas Wolovick
@@ -1013,11 +1013,11 @@
 # Absorption =    2.000/cm
 # Photons    =    32768
 #
-# 0.043789 seconds
-# 748.323785 K photons per second
+# 0.035759 seconds
+# 916.353057 K photons per second
 # Radius	Heat
 # [microns]	[W/cm^3]	Error
-     0	874314.93750	        -nan
+     0	874270.59375	        -nan
     50	  4711.90555	    50.21709
    100	  1784.15008	    18.47702
    150	   883.82029	     9.31789
@@ -1117,4 +1117,4 @@
   4850	     0.02599	     0.00186
   4900	     0.02691	     0.00186
   4950	     0.02508	     0.00179
-# extra	     0.20071
+# extra	     0.20073
