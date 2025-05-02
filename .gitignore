@@ -2,4 +2,5 @@ headless
 head
 *.o
 R7/script.py
+I7/script.py
 .vscode/settings.json
