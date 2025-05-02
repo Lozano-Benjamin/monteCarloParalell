@@ -15,6 +15,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <omp.h>
 
 char t1[] = "Tiny Monte Carlo by Scott Prahl (http://omlc.ogi.edu)";
 char t2[] = "1 W Point Source Heating in Infinite Isotropic Scattering Medium";
@@ -44,13 +45,15 @@ int main(void)
     // start timer
     double start = wtime();
     // Paralelización del bucle de simulacion
+    omp_set_num_threads(8);
+
     #pragma omp parallel
     {
         // Cada hilo tendrá su propio arreglo local para evitar conflictos
         float local_heat[SHELLS] = {0};
         float local_heat2[SHELLS] = {0};
 
-        #pragma omp for schedule(static, 5)
+        #pragma omp for schedule(static, 5) 
         for (unsigned int i = 0; i < PHOTONS; ++i) {
             photon(local_heat, local_heat2);
         }
