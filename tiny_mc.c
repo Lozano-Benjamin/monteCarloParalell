@@ -43,9 +43,26 @@ int main(void)
     srand(SEED);
     // start timer
     double start = wtime();
-    // simulation
-    for (unsigned int i = 0; i < PHOTONS; ++i) {
-        photon(heat, heat2);
+    // Paralelización del bucle de simulacion
+    #pragma omp parallel
+    {
+        // Cada hilo tendrá su propio arreglo local para evitar conflictos
+        float local_heat[SHELLS] = {0};
+        float local_heat2[SHELLS] = {0};
+
+        #pragma omp for
+        for (unsigned int i = 0; i < PHOTONS; ++i) {
+            photon(local_heat, local_heat2);
+        }
+
+        //Ahora agregamos los resultados locales al arreglo global
+        #pragma omp critical
+        {
+            for (unsigned int j = 0; j < SHELLS; ++j) {
+                heat[j] += local_heat[j];
+                heat2[j] += local_heat2[j];
+            }
+        }
     }
     // stop timer
     double end = wtime();

@@ -37,7 +37,7 @@ endif
 # -------------------------
 # Flags por defecto para gcc y clang
 COMMON_FLAGS_default = -std=c11 -Wall -Wextra
-OPT_FLAGS_default = -O3 -funroll-loops -march=native -falign-functions=32 -falign-loops=32 -ffast-math -flto -ftree-vectorize -msse4.1
+OPT_FLAGS_default = -O3 -funroll-loops -march=native -falign-functions=32 -falign-loops=32 -ffast-math -flto -ftree-vectorize -msse4.1 -fopenmp
 ifeq ($(COMPILER),gcc)
    COMMON_FLAGS = $(COMMON_FLAGS_default)
    OPT_FLAGS = $(OPT_FLAGS_default)
