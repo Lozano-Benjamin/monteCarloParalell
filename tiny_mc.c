@@ -50,7 +50,7 @@ int main(void)
         float local_heat[SHELLS] = {0};
         float local_heat2[SHELLS] = {0};
 
-        #pragma omp for
+        #pragma omp for schedule(static, 5)
         for (unsigned int i = 0; i < PHOTONS; ++i) {
             photon(local_heat, local_heat2);
         }
