@@ -3,9 +3,10 @@
 #include <stdint.h>
 #include "params.h"
 #include <xmmintrin.h>
+#include <omp.h>
 
 static uint32_t xorshift_state = 12345; //Estado inicial del generador
-
+#pragma omp threadprivate(xorshift_state)
 
 //Generador Xorshift de 32 bits
 uint32_t xorshift32(){
@@ -27,6 +28,9 @@ void photon(float* heats, float* heats_squared)
     const float albedo = MU_S / (MU_S + MU_A);
     const __m128 shells_per_mfp = _mm_set1_ps(1e4 / MICRONS_PER_SHELL / (MU_A + MU_S));
 
+    if (xorshift_state == 12345) {
+        xorshift_state += omp_get_thread_num();
+    }
     
     __m128 x = _mm_set1_ps(0.0f); 
     __m128 y = _mm_set1_ps(0.0f);
