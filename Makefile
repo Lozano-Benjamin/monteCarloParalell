@@ -37,8 +37,13 @@ endif
 # -------------------------
 # Flags por defecto para gcc y clang
 COMMON_FLAGS_default = -std=c11 -Wall -Wextra
+<<<<<<< HEAD
 OPT_FLAGS_default = -O3 -funroll-loops -march=native -falign-functions=32 -falign-loops=32 -ffast-math -flto -ftree-vectorize -msse4.1 -fopenmp -pthread
  ifeq ($(COMPILER),gcc)
+=======
+OPT_FLAGS_default = -O3 -funroll-loops -march=native -falign-functions=32 -falign-loops=32 -ffast-math -flto -ftree-vectorize -msse4.1 -fopenmp -pthread 
+ifeq ($(COMPILER),gcc)
+>>>>>>> f83bdbfcd7a100ebe29e881c0c6ccfd4008ae6c8
    COMMON_FLAGS = $(COMMON_FLAGS_default)
    OPT_FLAGS = $(OPT_FLAGS_default)
 endif
@@ -48,12 +53,21 @@ ifeq ($(COMPILER),clang)
 endif
 ifeq ($(COMPILER),nvcc)
    # Suponemos que se compila en modo C++ para nvcc (ajusta según corresponda)
+<<<<<<< HEAD
    COMMON_FLAGS = -ccbin clang-14
    OPT_FLAGS = -Xcompiler="-O3 -march=native -ftree-vectorize -funroll-loops -falign-functions=32 -falign-loops=32 -flto -pthread -fopenmp"
 endif
 ifeq ($(COMPILER),icx)
    COMMON_FLAGS =
    OPT_FLAGS = -O3 -funroll-loops -march=native -falign-functions=32 -ffast-math -fp-model fast=2  -qopt-report=max -qopenmp -qopenmp-simd 
+=======
+   COMMON_FLAGS =
+   OPT_FLAGS = -Xcompiler="-O3 -march=native -ftree-vectorize -funroll-loops -falign-functions=32 -falign-loops=32 -flto -fopenmp"
+endif
+ifeq ($(COMPILER),icx)
+   COMMON_FLAGS =
+   OPT_FLAGS = -O3 -funroll-loops -march=native -falign-functions=32 -falign-loops=32 -ffast-math  -msse4.1 -fp-model fast=2 -qopt-zmm-usage=high  -qopt-report=max -qopenmp -qopenmp-simd 
+>>>>>>> f83bdbfcd7a100ebe29e881c0c6ccfd4008ae6c8
 endif
 
 # -------------------------

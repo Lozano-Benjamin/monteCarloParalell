@@ -1,0 +1,158 @@
+Begin optimization report for: xorshift32
+=================================================================
+
+Begin optimization report for: rand_float
+=================================================================
+
+Begin optimization report for: photon
+
+LOOP BEGIN at photon_vec.c (46, 5)
+
+    LOOP BEGIN at photon_vec.c (71, 9)
+        remark #15521: Loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form from OpenMP specification
+    LOOP END
+LOOP END
+=================================================================
+
+---- Begin Inlining Report ----
+Option Values:
+  inline-threshold: 225
+  inlinehint-threshold: 325
+  inlinecold-threshold: 45
+  inlineoptsize-threshold: 15
+
+DEAD STATIC FUNC: _mm_add_ps
+
+DEAD STATIC FUNC: _mm_cvtss_f32
+
+DEAD STATIC FUNC: _mm_mul_ps
+
+DEAD STATIC FUNC: _mm_set1_ps
+
+DEAD STATIC FUNC: _mm_set_ps1
+
+DEAD STATIC FUNC: _mm_sqrt_ps
+
+COMPILE FUNC: photon
+   -> INLINE: _mm_set1_ps photon_vec.c(50,38)
+   -> INLINE: _mm_set1_ps photon_vec.c(49,38)
+   -> INLINE: _mm_set1_ps photon_vec.c(48,38)
+   -> INLINE: _mm_set1_ps photon_vec.c(44,18)
+   -> INLINE: _mm_set1_ps photon_vec.c(40,16)
+   -> INLINE: _mm_set1_ps photon_vec.c(39,16)
+   -> INLINE: _mm_set1_ps photon_vec.c(38,16)
+   -> INLINE: _mm_set1_ps photon_vec.c(37,16)
+   -> INLINE: _mm_set1_ps photon_vec.c(36,16)
+   -> INLINE: _mm_set1_ps photon_vec.c(35,16)
+   -> INLINE: _mm_set1_ps photon_vec.c(29,35)
+   -> INLINE: _mm_add_ps photon_vec.c(58,15)
+   -> INLINE: _mm_add_ps photon_vec.c(57,15)
+   -> INLINE: _mm_add_ps photon_vec.c(50,13)
+   -> INLINE: _mm_add_ps photon_vec.c(49,13)
+   -> INLINE: _mm_add_ps photon_vec.c(48,13)
+   -> INLINE: _mm_mul_ps photon_vec.c(78,59)
+   -> INLINE: _mm_mul_ps photon_vec.c(77,59)
+   -> INLINE: _mm_mul_ps photon_vec.c(61,44)
+   -> INLINE: _mm_mul_ps photon_vec.c(54,13)
+   -> INLINE: _mm_mul_ps photon_vec.c(53,13)
+   -> INLINE: _mm_mul_ps photon_vec.c(52,13)
+   -> INLINE: _mm_mul_ps photon_vec.c(50,27)
+   -> INLINE: _mm_mul_ps photon_vec.c(49,27)
+   -> INLINE: _mm_mul_ps photon_vec.c(48,27)
+   -> INLINE: _mm_sqrt_ps photon_vec.c(59,15)
+      -> llvm.sqrt.v4f32
+   -> INLINE: _mm_cvtss_f32 photon_vec.c(78,45)
+   -> INLINE: _mm_cvtss_f32 photon_vec.c(77,45)
+   -> INLINE: _mm_cvtss_f32 photon_vec.c(61,30)
+   -> INLINE: _mm_set_ps1 photon_vec.c(78,13)
+      -> INLINE: _mm_set1_ps
+   -> INLINE: _mm_set_ps1 photon_vec.c(77,13)
+      -> INLINE: _mm_set1_ps
+   -> INLINE: _mm_set_ps1 photon_vec.c(76,13)
+      -> INLINE: _mm_set1_ps
+   -> EXTERN: omp_get_thread_num photon_vec.c(32,27)
+   -> INLINE: rand_float photon_vec.c(47,25) (20<=787)
+      -> INLINE: xorshift32 photon_vec.c(23,18) (10<=375)
+   -> llvm.log.f32 photon_vec.c(47,20)
+   -> llvm.umin.i32 photon_vec.c(62,13)
+   -> INLINE: rand_float photon_vec.c(72,26) (20<=787)
+      -> INLINE: xorshift32 photon_vec.c(23,18) (10<=375)
+   -> INLINE: rand_float photon_vec.c(73,26) (20<=787)
+      -> INLINE: xorshift32 photon_vec.c(23,18) (10<=375)
+   -> llvm.sqrt.f32 photon_vec.c(77,31)
+   -> DELETE: llvm.sqrt.f32 photon_vec.c(78,31)
+   -> INLINE: rand_float photon_vec.c(81,17) (20<=375)
+      -> INLINE: xorshift32 photon_vec.c(23,18) (10<=375)
+   -> EXTERN: __kmpc_global_thread_num
+   -> EXTERN: __kmpc_threadprivate_cached
+
+COMPILE FUNC: xorshift32
+   -> EXTERN: __kmpc_global_thread_num
+   -> EXTERN: __kmpc_threadprivate_cached
+
+COMPILE FUNC: rand_float
+   -> INLINE: xorshift32 photon_vec.c(23,18) (10<=375)
+   -> EXTERN: __kmpc_global_thread_num
+   -> EXTERN: __kmpc_threadprivate_cached
+
+---- End Inlining Report ------
+Register allocation report for: xorshift32
+FUNCTION BEGIN
+
+Hardware registers used
+ Reserved : 2 [ rsp ssp  ]
+ Available : 29 [ rbp rbx r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 0 [  ]
+ Assigned : 7 [ eflags rax rcx rdi rdx rsi r8  ]
+
+Routine stack 
+ Variables : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
+Register allocation report for: rand_float
+FUNCTION BEGIN
+
+Hardware registers used
+ Reserved : 4 [ rsp ssp mxcsr rip  ]
+ Available : 28 [ rbp rbx r9 r10 r11 r12 r13 r14 r15 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 0 [  ]
+ Assigned : 8 [ eflags rax rcx rdi rdx rsi r8 zmm0  ]
+
+Routine stack 
+ Variables : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
+Register allocation report for: photon
+FUNCTION BEGIN
+ 3 spills 
+ LOOP1 BEGIN at (photon_vec.c:71:9)
+  7 reloads 7 spills 
+  LOOP2 BEGIN at (photon_vec.c:71:9)
+  LOOP2 END
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 4 [ rsp ssp rip mxcsr  ]
+ Available : 16 [ r9 r10 r11 r13 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 4 [ rbx r14 r15 r12  ]
+ Assigned : 20 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r12 r14 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7  ]
+
+Routine stack 
+ Variables : 100 Bytes
+   Read Count : 7
+   Write Count : 10
+ Spills : 148 Bytes
+   Read Count : 7
+   Write Count : 10
+
+FUNCTION END
