@@ -122,4 +122,3 @@ headlessOpt: $(TINY_OPT_OBJ) $(OPT_OBJS)
 # -------------------------
 clean:
 	rm -rf $(TARGETS) *.o $(OPT_DIR)
-
